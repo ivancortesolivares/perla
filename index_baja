@@ -1,0 +1,264 @@
+!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BAJA</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: Moccasin;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+        }
+
+        /* OCULTAR EL CONTENIDO PRINCIPAL POR DEFECTO */
+        #main-content {
+            display: none;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* PANTALLA DE ACCESO (MODAL) */
+        #lock-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: #2c3e50; /* Un fondo oscuro elegante para la pantalla de bloqueo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .login-box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            font-size: 1.6rem;
+            color: #2c3e50;
+        }
+
+        .login-box input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .login-box input:focus {
+            border-color: #3498db;
+        }
+
+        .login-box button {
+            padding: 12px 30px;
+            border: none;
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .login-box button:hover {
+            background: #2980b9;
+        }
+
+        .error-txt {
+            color: #e74c3c;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            display: none;
+        }
+
+        /* ESTILOS DEL CONTENIDO DE LA PÁGINA */
+        h1 {
+            color: blue;
+            font-size: 2.5rem;
+            margin-bottom: 25px;
+        }
+
+        audio {
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            color: blue;
+            font-weight: normal;
+            line-height: 1.6;
+            margin-top: 30px;
+            font-size: 1.5rem;
+            padding: 0 10px;
+        }
+
+        /* FIRMA (Adaptada estéticamente para fondo claro) */
+        .firma {
+            margin-top: 55px;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.6rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-weight: 500;
+            color: #2c3e50; /* Tono oscuro a juego con el lockscreen para contraste */
+            letter-spacing: 1px;
+            text-shadow:
+                0 0 8px rgba(52, 152, 219, 0.2),
+                0 0 16px rgba(52, 152, 219, 0.1);
+        }
+
+        .fecha { font-size: 2rem; margin-bottom: 5px; }
+        .nombre { font-size: 3rem; }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.2rem; }
+            .firma { font-size: 2rem; }
+            .nombre { font-size: 2.3rem; }
+            .fecha { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="lock-screen">
+        <div class="login-box">
+            <h2>Acceso Protegido</h2>
+            <input type="password" id="pass-input" placeholder="Introduce la contraseña" onkeypress="checkEnter(event)">
+            <br>
+            <button onclick="validatePassword()">Ingresar</button>
+            <div id="error-msg" class="error-txt">Contraseña incorrecta</div>
+        </div>
+    </div>
+
+    <div id="main-content">
+        <h1>BAJA</h1>
+
+        <br>
+        <img src="imagen/pleyades_3.png" alt="pleyades_3.png no encontrado" width="1000" height="1000">
+        <br>
+
+        <h2>
+            <strong>PLÉYADES</strong>
+			<br>
+			<br>
+		  ESTA PAGINA FUE DADA DE BAJA POR SI PROPIO AUTOR,POR CONSIDERAR QUE SU PROSA POETICA PROVOCO
+      MOLETIOAAS EN LA PERDSONSA QUE LA INSPIRO...
+			<br>
+			<br>
+		
+			<br>
+			Te confesé que tenía 60 años,<br>
+			tú respondiste que tenías 18 años...<br>
+			<br>
+			Siento que entre 60 y 18 años existe una diferencia abismal,<br>
+			tan grande como los 440 años luz entre la Tierra y las Pléyades...<br>
+			Tan abismante como los 4.543 millones de años de edad de la Tierra<br>
+			comparados con los jóvenes 100 millones de años de edad de las Pléyades...
+			<br>
+			<br>
+			De tus labios supe que te apasiona y practicas MMA,<br>
+			me sorprendiste y deseo verte practicarlo.<br>
+			Me doy cuenta que cada día trabajas mucho<br>
+			y tu esperanza es titularte de ingeniería en minas,<br>
+			siento que amas mucho a tu familia...
+			<br>
+			<br>
+			Me confesaste que tal vez no sigas trabajando en ese lugar<br>
+			y que vives en la siguiente calle de mi hogar<br>
+			No deseo que desaparezcas,pero si sucede<br>
+			caminaré por la calle donde vives <br>
+			con la esperanza que mis pupilas te vuelvan a encontrar...
+			<br>
+			<br>
+			Ya he vivido 2/3 de mi vida,<br>
+			tú ni siquiera has llegado al primer tercio de tu vida.<br>
+			Solo me queda desearte mucho éxito en todos tus proyectos<br>
+			de estudios, de trabajo, de pareja y de familia...
+			<br>
+			<br>
+			Siento que tu rostro y figura brillan más que Alcyone,<br>
+			la más brillante de las 7 hermanas.<br>
+			Cada día que te vi, te encontré más bella y atractiva que la vez anterior<br>
+			y ahora no deseo alejarme de ti<br>
+			solo deseo contemplar tu belleza por el resto de mis días...<br>
+			
+        </h2>
+
+        <div class="firma">
+            <div class="fecha"><strong>18-06-26</strong></div>
+            <div class="nombre"><strong>Iván C.</strong></div>
+        </div>
+    </div>
+
+    <script>
+        function validatePassword() {
+            const input = document.getElementById("pass-input").value;
+            const errorMsg = document.getElementById("error-msg");
+            const lockScreen = document.getElementById("lock-screen");
+            const mainContent = document.getElementById("main-content");
+            const audio = document.getElementById("bg-audio");
+
+            if (input === "ico.6996") {
+                lockScreen.style.display = "none"; // Quita el bloqueo
+                mainContent.style.display = "block"; // Muestra el contenido
+                
+                // Intenta reproducir el audio automáticamente tras la interacción del usuario
+                if (audio) {
+                    audio.play().catch(error => {
+                        console.log("La reproducción automática requiere una acción del usuario previa.");
+                    });
+                }
+            } else {
+                errorMsg.style.display = "block"; // Muestra el mensaje de error
+            }
+        }
+
+        // Permite presionar Enter en el teclado para ingresar directamente
+        function checkEnter(event) {
+            if (event.key === "Enter") {
+                validatePassword();
+            }
+        }
+    </script>
+
+</body>
+</html>
